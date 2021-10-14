@@ -2,6 +2,7 @@ package zlyden
 
 import (
 	"github.com/bwmarrin/discordgo"
+	"log"
 	"strings"
 )
 
@@ -14,12 +15,21 @@ func MessageCreate(s *discordgo.Session, m *discordgo.MessageCreate) {
 	}
 	// If the message is "Say Hi" reply with "Hello World!"
 	if strings.EqualFold(m.Content, "Say Hi") {
-		s.ChannelMessageSend(m.ChannelID, "Hello World!")
+		_, err := s.ChannelMessageSend(m.ChannelID, "Hello World!")
+		if err != nil {
+			log.Fatal(err)
+		}
 	}
 
 	// If the message is "Say Goodbye" reply with "Goodbye World!"
 	if strings.EqualFold(m.Content, "Say Goodbye") {
-		s.ChannelMessageSend(m.ChannelID, "Goodbye World!")
-		s.Close()
+		_, err := s.ChannelMessageSend(m.ChannelID, "Goodbye World!")
+		if err != nil {
+			log.Fatal(err)
+		}
+
+		if err := s.Close(); err != nil {
+			log.Fatal(err)
+		}
 	}
 }

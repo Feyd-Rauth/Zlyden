@@ -28,7 +28,12 @@ func main() {
 	if err := discord.Open(); err != nil {
 		log.Fatal(err)
 	}
-	defer discord.Close()
+	defer func(discord *discordgo.Session) {
+		err := discord.Close()
+		if err != nil {
+			log.Fatal(err)
+		}
+	}(discord)
 
 	fmt.Println("Bot is now running.  Press CTRL-C to exit.")
 	sc := make(chan os.Signal, 1)
