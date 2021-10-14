@@ -15,6 +15,6 @@ jobs:
           go-version: '1.17'
 
       - name: Run build
-        run: go build github.com/Feyd-Rauth/Zlyden/cmd
+        run: go build github.com/Feyd-Rauth/Zlyden/cmd/bot
       - name: Lint via golint
         uses: golangci/golangci-lint-action@v2
