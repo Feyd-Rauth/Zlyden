@@ -6,3 +6,4 @@
 *.dylib
 # IDE settings
 .vscode/
+token*
