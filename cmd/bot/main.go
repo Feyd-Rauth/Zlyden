@@ -2,13 +2,14 @@ package main
 
 import (
 	"fmt"
-	"github.com/Feyd-Rauth/Zlyden/pkg/zlyden"
-	"github.com/bwmarrin/discordgo"
 	"io/ioutil"
 	"log"
 	"os"
 	"os/signal"
 	"syscall"
+
+	"github.com/Feyd-Rauth/Zlyden/pkg/zlyden"
+	"github.com/bwmarrin/discordgo"
 )
 
 func main() {
